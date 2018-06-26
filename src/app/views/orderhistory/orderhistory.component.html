@@ -1,0 +1,40 @@
+<div class="animated fadeIn">
+    <div class="card">
+        <div class="card-header">
+            <i class="fa fa-align-justify"></i> Order History 
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Order time</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of dataInPage">
+                        <td>{{item.id}}</td>
+                        <td>{{item.date_order}}</td>
+                        <td>{{item.total}}</td>
+                        <td>
+                            <span *ngIf="item.status==='1'" class="badge badge-success">Delivered</span>
+                            <span *ngIf="item.status==='0'" class="badge badge-warning">Pending</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="row">
+                <div class="col-xs-12 col-12">
+                    <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" [maxSize]="maxSize" class="pagination-sm"
+                                previousText="&lsaquo;" nextText="&rsaquo;" firstText="First" lastText="Last"
+                                [boundaryLinks]="true" [rotate]="false" (numPages)="numPages = $event"
+                                (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage">
+                    </pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

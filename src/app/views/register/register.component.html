@@ -1,0 +1,63 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <h1>Register</h1>
+              <p class="text-muted">Create your account</p>
+              <alert *ngIf="isSuccess===1" type="success">
+                <strong>Success!</strong> You successfully register an account at MyShop. Your email is <strong>{{email}}</strong>, You can use it to login to buy. Enjoy!
+              </alert>
+              <alert *ngIf="isSuccess===-1" type="danger">
+                <strong>Opps!</strong> Verifying was wrong, we could not register your account, please try again!
+              </alert>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-user"></i></span>
+                </div>
+                <input type="text" [(ngModel)]="name" class="form-control" placeholder="Name">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">@</span>
+                </div>
+                <input type="text" [(ngModel)]="email" class="form-control" placeholder="Email">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-lock"></i></span>
+                </div>
+                <input type="password" [(ngModel)]="password1" class="form-control" placeholder="Password">
+              </div>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-lock"></i></span>
+                </div>
+                <input type="password" [(ngModel)]="password2" class="form-control" placeholder="Repeat password">
+              </div>
+              <alert *ngIf="password1!==password2" type="danger">
+                  Password does not match.
+                </alert>
+              <button
+                type="button" 
+                [disabled]="!email || !password1 || !password2 || !name || password1!==password2"
+                (click)="Register()"
+                [class]="name&&email&&password1&&password2&&(password1===password2) ? 'btn btn-block btn-success' : 'btn btn-block btn-default'">Create Account</button>
+            </div>
+            <div class="card-footer p-4">
+              <div class="row">
+                <div class="col-6">
+                  <a routerLink="/login">
+                    <button class="btn btn-default" type="button"><span>Login</span></button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

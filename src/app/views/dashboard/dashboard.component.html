@@ -1,0 +1,64 @@
+<div class="animated fadeIn">
+  <div class="card carousel-custom">
+    <div class="card-body">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators ">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="background-color-dark active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1" class="background-color-dark"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2" class="background-color-dark"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="3" class="background-color-dark"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block" src="{{imageUrl}}type/{{firstOfType.image}}" alt="First slide">
+                <div class="carousel-caption color-dark">
+                    <h3>{{firstOfType.name}}</h3>
+                </div>
+              </div>
+              
+              <div class="carousel-item" *ngFor="let type of types">
+                <img class="d-block" src="{{imageUrl}}type/{{type.image}}" alt="First slide">
+                <div class="carousel-caption color-dark">
+                    <h3>{{type.name}}</h3>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev fade-right" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next fade-left" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-4" *ngFor="let product of products">
+        <div class="card">
+            <div class="card-header text-center">
+                <p class="text-capitalize font-weight-bold text-name">{{product.name}}</p>
+            </div>
+            <div class="card-body">
+                <img class="img-fluid" src="{{imageUrl}}product/{{product.images[0]}}">
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-3 text-nowrap font-weight-bold">
+                        Price:
+                    </div>
+                    <div class="col-3 text-nowrap text-price font-weight-bold">
+                        {{product.price}} $
+                    </div>
+                    <div class="col-6">
+                        <a routerLink="/products/detail/{{product.id}}">
+                            <button class="btn btn-success float-right">Detail</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

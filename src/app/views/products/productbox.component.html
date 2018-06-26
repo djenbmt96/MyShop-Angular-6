@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-header text-center">
+        <p class="text-capitalize font-weight-bold text-name">{{product.name}}</p>
+    </div>
+    <div class="card-body">
+        <img class="img-fluid" src="{{imageUrl}}product/{{product.images[0]}}">
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-3 text-nowrap font-weight-bold">
+                Price:
+            </div>
+            <div class="col-3 text-nowrap text-price font-weight-bold">
+                {{product.price}} $
+            </div>
+            <div class="col-6">
+                <a routerLink="/products/detail/{{product.id}}">
+                    <button class="btn btn-success float-right">Detail</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

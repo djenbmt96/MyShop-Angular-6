@@ -1,0 +1,50 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="text-capitalize font-weight-bold text-name">{{product.nameProduct}}</p>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-success float-right" (click)="addCart()">Add Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6 align-item-center">
+                        <img class="img-fluid" src="{{urlImage}}{{product.images[0]}}">
+                    </div>
+                    <div class="col-6 align-item-center">
+                        <img class="img-fluid" src="{{urlImage}}{{product.images[1]}}">
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 align-item-center margin-top">
+                                <div class="row">
+                                    <p class="font-weight-bold text-uppercase text-big">{{product.nameProduct}} / </p>
+                                    <p class="font-weight-bold text-name text-big"> {{product.price}} $</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-0">
+                        <div class="row">
+                            <div class="col-12 text-note">{{product.description}}</div>
+                        </div>
+                        <hr class="mt-0">
+                        <div class="row text-purple font-weight-bold">
+                            <div class="col-6">Material: {{product.material}}</div>
+                            <div class="col-6 text-right">Color: {{product.color}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

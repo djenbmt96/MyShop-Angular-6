@@ -1,0 +1,16 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-6 col-md-4" *ngFor="let product of products">
+            <app-productbox [product]="product"></app-productbox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-12">
+            <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" [maxSize]="maxSize" class="pagination-sm"
+                        previousText="&lsaquo;" nextText="&rsaquo;" firstText="First" lastText="Last"
+                        [boundaryLinks]="true" [rotate]="false" (numPages)="numPages = $event"
+                        (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage">
+            </pagination>
+        </div>
+    </div>
+</div>

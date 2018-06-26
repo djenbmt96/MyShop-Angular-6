@@ -1,0 +1,70 @@
+<app-header
+  [fixed]="true"
+  [navbarBrandFull]="{src: 'https://images.vexels.com/media/users/3/146438/isolated/lists/f8a17e92468d124e4d1a04d79e075683-merry-christmas-beautiful-lettering.png', width: 89, height: 50, alt: 'CoreUI Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
+  [sidebarToggler]="'lg'"
+  [asideMenuToggler]="false">
+  <ul class="nav navbar-nav d-md-down-none">
+    <li class="nav-item px-3">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" routerLink="/products">Product</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" routerLink="/about">About</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" routerLink="/contact">Contact</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item d-md-down-none" >
+      <a aria-haspopup="true" class="nav-link" routerLink="/cart"><i class="fa fa-shopping-cart"></i><span *ngIf="numberOfCart>0" class="badge badge-pill badge-danger">{{numberOfCart}}</span></a>
+    </li>
+    <li *ngIf="!isLogin" class="nav-item d-md-down-none">
+      <button routerLink="/login" class="btn btn-pill btn-block btn-success"><i class="fa fa-sign-in-alt"></i>Login</button>
+    </li>
+    <li *ngIf="isLogin" class="nav-item dropdown" dropdown placement="bottom right">
+      <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+        <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com"/>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+        <div class="dropdown-header text-center"><strong>{{currentUser.user.name | uppercase}}</strong></div>
+        <a routerLink="/orderhistory" class="dropdown-item"><i class="fa fa-history"></i> Order history</a>
+        <a routerLink="/changeinfo" class="dropdown-item"><i class="fa fa-edit"></i> Change info</a>
+        <button class="dropdown-item" (click)="Logout()" ><i class="fa fa-lock"></i> Logout</button>
+      </div>
+    </li>
+  </ul>
+</app-header>
+<div class="app-body">
+  <app-sidebar [fixed]="true" [display]="'lg'">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="sidebarMinimized"></app-sidebar-nav>
+    <app-sidebar-minimizer></app-sidebar-minimizer>
+  </app-sidebar>
+  <!-- Main content -->
+  <main class="main">
+    <!-- Breadcrumb -->
+    <div style="width:100%;height:3px;margin-bottom:24px;"></div>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div><!-- /.container-fluid -->
+  </main>
+
+  <app-aside [fixed]="true" [display]="false">
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action">Home</a>
+      <a routerLink="/products" class="list-group-item list-group-item-action">Product</a>
+      <a routerLink="/about" class="list-group-item list-group-item-action">About</a>
+      <a routerLink="/contact" class="list-group-item list-group-item-action">Contact</a>
+      <a *ngIf="!isLogin" routerLink="/login" class="list-group-item list-group-item-action list-group-item-success">Login</a>
+      <a routerLink="/cart" class="list-group-item list-group-item-action list-group-item-success">Cart<span *ngIf="numberOfCart>0" class="badge badge-pill badge-danger">{{numberOfCart}}</span></a>
+    </div>
+  </app-aside>
+  
+</div>
+<app-footer>
+  <span><a href="#">My Shop</a> &copy; 2018 Shop communication.</span>
+  <span class="ml-auto">Powered by <a href="https://tuandien.tk">Tuấn Điền</a></span>
+</app-footer>

@@ -1,0 +1,44 @@
+// Here you can add other styles
+.d-block{
+    width:100%;
+    height:auto;
+}
+.color-dark{
+    color:#AFB1B3 !important;
+}
+.background-color-dark{
+    background-color:#AFB1B3 !important;
+}
+.carousel-indicators .active {
+    background-color: #080808 !important;
+}
+.fade-right{
+    background: linear-gradient(to right, rgb(145, 145, 146) , rgba(255, 255, 255, 0));
+}
+.fade-left{
+    background: linear-gradient(to left, rgb(145, 145, 146) , rgba(255, 255, 255, 0));
+}
+.align-item-center{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.text-name{
+    color:#999999;
+    margin:0px;
+}
+.text-price{
+    color:#DA4A4C;
+}
+.margin-top{
+    margin-top: 20px;
+}
+.text-note{
+    color:#5e6368;
+}
+.text-big{
+    font-size:150%;
+}
+.text-purple{
+    color:#ce0c73;
+}
